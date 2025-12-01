@@ -15,6 +15,8 @@ jobs:
   call-reusable-workflow:
     needs: do-stuff
     uses: tkeburia/reusable-workflow-example/.github/workflows/sample.yml@main
+    with:
+      env_name: "dev"
 
   clean-up:
     runs-on: ubuntu-latest
