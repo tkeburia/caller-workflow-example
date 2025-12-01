@@ -5,6 +5,14 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      env_name:
+        description: "Environment name"
+        required: true
+        type: choice
+        options:
+          - dev
+          - stg
 
 jobs:
   do-stuff:
