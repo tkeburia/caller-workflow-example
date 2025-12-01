@@ -13,7 +13,7 @@ jobs:
         - name: prep
           run: echo "Preparing to call reusable workflow"
     call-reusable-workflow:
-        uses: /tkeburia/reusable-workflow-example/.github/workflows/sample.yml@main
+        uses: tkeburia/reusable-workflow-example/.github/workflows/sample.yml@main
     clean-up:
         runs-on: ubuntu-latest
         needs: call-reusable-workflow
