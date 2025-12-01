@@ -2,14 +2,6 @@ name: Caller Workflow
 
 on:
   workflow_dispatch:
-    inputs:
-      env_name:
-        description: "Environment name"
-        required: true
-        type: choice
-        options:
-          - dev
-          - stg
 
 jobs:
   do-stuff:
@@ -20,8 +12,6 @@ jobs:
   call-reusable-workflow:
     needs: do-stuff
     uses: tkeburia/reusable-workflow-example/.github/workflows/sample.yml@main
-    with:
-      env_name: ${{ github.event.inputs.env_name }}
 
   clean-up:
     runs-on: ubuntu-latest
