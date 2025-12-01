@@ -1,0 +1,22 @@
+name: Caller Workflow
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    do-stuff: 
+        runs-on: ubuntu-latest
+        steps:
+        - name: prep
+          run: echo "Preparing to call reusable workflow"
+    call-reusable-workflow:
+        uses: /tkeburia/reusable-workflow-example/.github/workflows/sample.yml@main
+    clean-up:
+        runs-on: ubuntu-latest
+        needs: call-reusable-workflow
+        steps:
+        - name: cleanup
+          run: echo "Cleaning up after reusable workflow"
